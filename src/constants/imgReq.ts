@@ -1,0 +1,16 @@
+export default {
+  app_icon: require('../../assets/images/app_icon.png'),
+  home: require('../../assets/images/home1.png'),
+  sub_home: require('../../assets/images/home2.png'),
+  search: require('../../assets/images/search1.png'),
+  sub_search: require('../../assets/images/search1.png'),
+  watch: require('../../assets/images/bookmark2.png'),
+  sub_watch: require('../../assets/images/bookmark1.png'),
+  img1: require('../../assets/images/img1.jpg'),
+  img2: require('../../assets/images/img2.jpg'),
+  img3: require('../../assets/images/img3.jpeg'),
+  img4: require('../../assets/images/img4.jpg'),
+  menu: require('../../assets/images/menu.png'),
+  notify: require('../../assets/images/notify.png'),
+  no_result: require('../../assets/images/no_result.png'),
+};
