@@ -16,6 +16,8 @@ interface props {
   onpressed?: (v: any) => void;
 }
 
+const data = ['Horror', 'Action', 'Romance'];
+
 const PopularCard = memo(({ item, index, onpressed }: props) => {
   return (
     <View>
@@ -37,10 +39,10 @@ const PopularCard = memo(({ item, index, onpressed }: props) => {
               <StartRating rate={`${Math.round(Number(item?.vote_average))}`} />
             </View>
             <View style={{ flexDirection: 'row' }}>
-              {[12, 3, 4].map(() => {
+              {data.map((item, index) => {
                 return (
-                  <View>
-                    <Carificate />
+                  <View key={index}>
+                    <Carificate item={item} />
                   </View>
                 );
               })}
@@ -59,10 +61,10 @@ const PopularCard = memo(({ item, index, onpressed }: props) => {
   );
 });
 
-const Carificate = memo(() => {
+const Carificate = memo(({ item }: any) => {
   return (
     <View style={styles?.movieCarificateView}>
-      <Txt size={10}>HORROR</Txt>
+      <Txt size={10}>{item}</Txt>
     </View>
   );
 });

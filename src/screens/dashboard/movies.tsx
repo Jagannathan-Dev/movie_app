@@ -30,7 +30,7 @@ const Movies: FC = () => {
     <ScreenContainer
       rightIconPressed={() => null}
       leftIconPressed={() => null}
-      title={'FilmKu'}
+      title={'Kuku Movie'}
     >
       <ScrollView
         showsVerticalScrollIndicator={false}

@@ -88,6 +88,7 @@ const MovieDetails: FC<props> = ({ navigation, route }) => {
                   width: '100%',
                   height: responsiveSize(width),
                   borderRadius: 10,
+                  // resizeMode: 'contain',
                 }}
                 source={{
                   uri: `${imgUrl?.imgBaseUrl}${movieDetails?.poster_path}`,
