@@ -22,8 +22,8 @@ const Movies: FC = () => {
     dispatch(nowPlayingRequest());
   }, []);
 
-  const handleNavigate = useCallback((v: any) => {
-    navigate('moviedetails', { data: v });
+  const handleNavigate = useCallback((n: string, v: any) => {
+    navigate(n, { data: v });
   }, []);
 
   return (
@@ -41,7 +41,10 @@ const Movies: FC = () => {
         }}
       >
         <View style={{ flex: 1 }}>
-          <ShowTitle title={'Now Playing'}>
+          <ShowTitle
+            onpressed={() => handleNavigate('moremovie', 'now_playing')}
+            title={'Now Playing'}
+          >
             <View>
               <FlatList
                 data={nowPlaying?.results?.slice(0, 5)}
@@ -52,14 +55,17 @@ const Movies: FC = () => {
                   <ShowNowPlayingCard
                     index={index}
                     item={item}
-                    onpressed={v => handleNavigate(v)}
+                    onpressed={v => handleNavigate('moviedetails', v)}
                   />
                 )}
               />
             </View>
           </ShowTitle>
           <View style={{ marginTop: 20 }}>
-            <ShowTitle title={'Popular'}>
+            <ShowTitle
+              onpressed={() => handleNavigate('moremovie', 'popular')}
+              title={'Popular'}
+            >
               <View>
                 <FlatList
                   data={popularMovie?.results?.slice(0, 5)}
@@ -69,7 +75,7 @@ const Movies: FC = () => {
                     <PopularCard
                       index={index}
                       item={item}
-                      onpressed={v => handleNavigate(v)}
+                      onpressed={v => handleNavigate('moviedetails', v)}
                     />
                   )}
                 />

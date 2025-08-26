@@ -28,3 +28,12 @@ export const GET_MOVIES_DETAILS = async (id?: any): Promise<any> => {
     throw e?.response?.data || e;
   }
 };
+
+export const GET_MOVIES_LIST = async (id?: any): Promise<any> => {
+  try {
+    const res = await apiAuth.get(`movie/${id}`);
+    return res.data;
+  } catch (e: any) {
+    throw e?.response?.data || e;
+  }
+};

@@ -7,6 +7,8 @@ import { colors } from '../../constants/colors';
 import StartRating from './start_rating';
 import VectorIcons, { iconsName } from './icon';
 import imgUrl from '../../constants/imgUrl';
+import { LabelCom } from './search_card';
+import moment from 'moment';
 
 interface props {
   item?: any;
@@ -43,20 +45,12 @@ const PopularCard = memo(({ item, index, onpressed }: props) => {
                 );
               })}
             </View>
-            <View style={{ flexDirection: 'row', marginTop: 15 }}>
-              <View style={{ justifyContent: 'center', marginRight: 10 }}>
-                <VectorIcons
-                  color={colors?.white}
-                  name="clock"
-                  iconType={iconsName.Octicons}
-                  size={13}
-                />
-              </View>
-              <View>
-                <Txt color={colors?.white} size={14}>
-                  1h 47m
-                </Txt>
-              </View>
+            <View style={{ marginTop: 5 }}>
+              <LabelCom
+                iconN={'calendar'}
+                iconT={iconsName?.Feather}
+                label={moment(item?.release_date).format('MMM/YYYY')}
+              />
             </View>
           </View>
         </View>

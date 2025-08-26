@@ -13,4 +13,5 @@ export default {
   menu: require('../../assets/images/menu.png'),
   notify: require('../../assets/images/notify.png'),
   no_result: require('../../assets/images/no_result.png'),
+  no_data: require('../../assets/images/nodata.png'),
 };

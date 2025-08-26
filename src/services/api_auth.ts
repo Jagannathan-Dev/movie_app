@@ -9,11 +9,6 @@ const apiAuth = axios.create({
 
 apiAuth.interceptors.request.use(
   async config => {
-    const token = await AsyncStorage.getItem('userToken');
-    if (token !== null) {
-      config.headers.Authorization = `Bearer ${token}`;
-      config.headers.Accept = `application/json`;
-    }
     if (!config.params) {
       config.params = {};
     }

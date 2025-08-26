@@ -18,6 +18,7 @@ import { Carificate } from '../../components/common/search_card';
 import ShowTitle from '../../components/common/show_title';
 import { GET_MOVIES_DETAILS } from '../../services/api_service';
 import imgUrl from '../../constants/imgUrl';
+import moment from 'moment';
 
 interface props {
   navigation: any;
@@ -48,6 +49,9 @@ const MovieDetails: FC<props> = ({ navigation, route }) => {
       setLoading(false);
     }
   };
+
+  const hours = Math.floor(movieDetails?.runtime / 60); // 1 hour
+  const minutes = movieDetails?.runtime % 60;
 
   return (
     <ScreenContainer
@@ -111,6 +115,27 @@ const MovieDetails: FC<props> = ({ navigation, route }) => {
                 })}
               </View>
             </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: 20,
+                flexWrap: 'wrap',
+              }}
+            >
+              <Comp label={'Length'} value={`${hours}h ${minutes}m`} />
+              <Comp
+                label={'Language'}
+                value={
+                  (movieDetails?.spoken_languages &&
+                    movieDetails?.spoken_languages[0]?.name) ||
+                  'English'
+                }
+              />
+              <Comp
+                label={'Release'}
+                value={moment(movieDetails?.release_date).format('DD-MM-YYYY')}
+              />
+            </View>
             <View style={{ marginTop: 30 }}>
               <ShowTitle visible={false} title={'Description'}>
                 <View>
@@ -126,5 +151,22 @@ const MovieDetails: FC<props> = ({ navigation, route }) => {
     </ScreenContainer>
   );
 };
+
+const Comp = memo(({ label, value }: any) => {
+  return (
+    <View style={{ marginRight: 20 }}>
+      <View>
+        <Txt size={13} color={colors?.ghostWhite}>
+          {label}
+        </Txt>
+      </View>
+      <View style={{ marginTop: 5 }}>
+        <Txt bold size={13} color={colors?.white}>
+          {value}
+        </Txt>
+      </View>
+    </View>
+  );
+});
 
 export default MovieDetails;
