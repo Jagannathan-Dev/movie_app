@@ -1,5 +1,5 @@
-import React, { FC, memo, useCallback, useEffect } from 'react';
-import { FlatList, Image, ScrollView, View } from 'react-native';
+import React, { FC, useCallback, useEffect } from 'react';
+import { FlatList, ScrollView, View } from 'react-native';
 import ScreenContainer from '../../components/common/screenContainer';
 import ShowTitle from '../../components/common/show_title';
 import ShowNowPlayingCard from '../../components/common/now_playin_card';
